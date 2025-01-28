@@ -7,15 +7,19 @@ export default function Navbar() {
         <Link to={"/"}>Home</Link>
         <Link to={"/add-sneaker"}>Add Sneaker</Link>
         <Link to={"/popular-sneakers"}>Popular</Link>
+        <Link to={"/brands"}>Brands</Link>
+        <Link to={"/auctions"}>Auction</Link>
       </div>
-      <Link to={"/add-auction"}>Add Auction</Link>
-      <Link
-        onClick={() => {
-          localStorage.clear();
-        }}
-      >
-        Logout
-      </Link>
+      <div className="flex gap-4">
+        <Link to={"/sneakers/user"}>My Sneakers</Link>
+        <Link
+          onClick={() => {
+            localStorage.clear();
+          }}
+        >
+          Logout
+        </Link>
+      </div>
     </div>
   );
 }

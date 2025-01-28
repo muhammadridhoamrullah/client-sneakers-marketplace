@@ -3,9 +3,13 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import MainLayout from "./components/MainLayout";
 import Home from "./pages/Home";
-import AddSneaker from "./pages/AddSneaker";
 import PopularSneakers from "./pages/PopularSneakers";
 import DetailSneaker from "./pages/DetailSneaker";
+import Brands from "./pages/Brands";
+import SneakerByBrand from "./pages/SneakerByBrand";
+import AddEditSneaker from "./pages/AddEditSneaker";
+import SneakerByUser from "./pages/SneakerByUser";
+import Auctions from "./pages/Auctions";
 
 function checkLogin() {
   if (!localStorage.access_token) {
@@ -42,7 +46,11 @@ const router = createBrowserRouter([
       },
       {
         path: "add-sneaker",
-        element: <AddSneaker />,
+        element: <AddEditSneaker type={"add"} />,
+      },
+      {
+        path: "edit-sneaker/:id",
+        element: <AddEditSneaker type={"edit"} />,
       },
       {
         path: "popular-sneakers",
@@ -51,6 +59,22 @@ const router = createBrowserRouter([
       {
         path: "sneaker/:id",
         element: <DetailSneaker />,
+      },
+      {
+        path: "brands",
+        element: <Brands />,
+      },
+      {
+        path: "brand/:brand",
+        element: <SneakerByBrand />,
+      },
+      {
+        path: "sneakers/user",
+        element: <SneakerByUser />,
+      },
+      {
+        path: "auctions",
+        element: <Auctions />,
       },
     ],
   },

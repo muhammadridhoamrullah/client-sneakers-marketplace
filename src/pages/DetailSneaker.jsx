@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import instance from "../axiosInstance";
 import { formatPrice } from "../components/CardHome";
 
-const formatDate = (dateString) => {
+export const formatDate = (dateString) => {
   const date = new Date(dateString);
   const options = {
     year: "numeric",
@@ -70,7 +70,10 @@ export default function DetailSneaker() {
           </div>
           <div className="w-full flex flex-col gap-4  ">
             {detailSneaker.collaboration && (
-              <div className="font-semibold">{detailSneaker.collaboration}</div>
+              <div className="flex items-center gap-2">
+                <span className="font-semibold w-24">Collaboration</span>:
+                <span>{detailSneaker.colorway}</span>
+              </div>
             )}
             <div className="flex flex-col  gap-4">
               <div className="flex items-center gap-2">

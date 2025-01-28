@@ -14,7 +14,6 @@ export default function Home() {
           Authorization: `Bearer ${localStorage.access_token}`,
         },
       });
-      console.log(response.data.data, "ini response di home");
 
       setFormDataSneakers(response.data.data);
     } catch (error) {

@@ -22,7 +22,7 @@ export default function CardHome({ data }) {
           className="w-fit h-full object-cover "
         />
       </Link>
-      <div className="flex-1 w-full h-full bg-amber-100 rounded-b-2xl flex flex-col p-4 gap-2">
+      <div className="flex-1 w-full h-full bg-orange-400 rounded-b-2xl flex flex-col p-4 gap-2">
         <div className="font-bold text-gray-800">{data.brand}</div>
         <div className="font-extrabold">{data.name}</div>
         <div className="font-medium">Size: {data.size}</div>

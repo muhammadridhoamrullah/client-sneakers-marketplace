@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import instance from "../axiosInstance";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function AddSneaker() {
+export default function AddEditSneaker({ type }) {
   const navigate = useNavigate();
+  console.log(type, "ini type");
+  const { id } = useParams();
+
   const [formAddSneaker, setDataFormAddSneaker] = useState({
     name: "",
     price: "",
@@ -16,7 +19,6 @@ export default function AddSneaker() {
     collaboration: "",
     imageUrl: "",
     box: "",
-    authenticityStatus: "",
   });
 
   function changeHandler(e) {
@@ -32,17 +34,31 @@ export default function AddSneaker() {
     e.preventDefault();
 
     try {
-      const response = await instance.post("/sneakers", formAddSneaker, {
-        headers: {
-          Authorization: `Bearer ${localStorage.access_token}`,
-        },
-      });
+      if (type === "add") {
+        const response = await instance.post("/sneakers", formAddSneaker, {
+          headers: {
+            Authorization: `Bearer ${localStorage.access_token}`,
+          },
+        });
 
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: response.data.message,
-      });
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: response.data.message,
+        });
+      } else {
+        const response = await instance.put(`/sneakers/${id}`, formAddSneaker, {
+          headers: {
+            Authorization: `Bearer ${localStorage.access_token}`,
+          },
+        });
+
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: response.data.message,
+        });
+      }
 
       navigate("/");
     } catch (error) {
@@ -52,6 +68,42 @@ export default function AddSneaker() {
         text: error.response.data.message,
       });
     }
+  }
+
+  async function fetchDetailData() {
+    try {
+      const response = await instance.get(`/sneakers/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.access_token}`,
+        },
+      });
+
+      setDataFormAddSneaker({
+        name: response.data.data.name,
+        price: response.data.data.price,
+        brand: response.data.data.brand,
+        releaseYear: response.data.data.releaseYear,
+        size: response.data.data.size,
+        condition: response.data.data.condition,
+        colorway: response.data.data.colorway,
+        collaboration: response.data.data.collaboration,
+        imageUrl: response.data.data.imageUrl,
+        box: response.data.data.box,
+        authenticityStatus: response.data.data.authenticityStatus,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.response.data.message,
+      });
+    }
+  }
+
+  if (type === "edit") {
+    useEffect(() => {
+      fetchDetailData();
+    }, []);
   }
   return (
     <form onSubmit={submitHandler}>
@@ -170,17 +222,7 @@ export default function AddSneaker() {
                 className="w-80 h-8 p-2 rounded-md border border-white"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label>AUTHENTICITY STATUS</label>
-              <input
-                type="text"
-                name="authenticityStatus"
-                id="authenticityStatus"
-                onChange={changeHandler}
-                value={formAddSneaker.authenticityStatus}
-                className="w-80 h-8 p-2 rounded-md border border-white"
-              />
-            </div>
+
             <button
               type="submit"
               className="w-80 h-8 font-semibold bg-green-900 rounded-md text-white hover:bg-green-800 mt-6"

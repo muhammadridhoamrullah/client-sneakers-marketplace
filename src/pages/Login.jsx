@@ -24,7 +24,6 @@ export default function Login() {
 
     try {
       const response = await instance.post("/login", formLogin);
-      console.log(response, "ini response di login");
 
       localStorage.access_token = response.data.access_token;
 

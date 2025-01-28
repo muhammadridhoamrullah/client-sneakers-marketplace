@@ -28,7 +28,7 @@ export default function PopularSneakers() {
     getPopularSneakers();
   }, []);
   return (
-    <div className="bg-gray-900 w-full min-h-screen flex flex-col items-center justify-start text-white pt-10 px-4 sm:px-6 lg:px-8">
+    <div className="bg-black w-full min-h-screen flex flex-col items-center justify-start text-white pt-10 px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold mb-8">Popular Sneakers</h1>
       <div className="w-[500px] bg-gray-800 rounded-lg shadow-lg overflow-hidden">
         <table className="w-full border-collapse">
