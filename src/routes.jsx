@@ -3,6 +3,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import MainLayout from "./components/MainLayout";
 import Home from "./pages/Home";
+import AddSneaker from "./pages/AddSneaker";
+import PopularSneakers from "./pages/PopularSneakers";
+import DetailSneaker from "./pages/DetailSneaker";
 
 function checkLogin() {
   if (!localStorage.access_token) {
@@ -36,6 +39,18 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "add-sneaker",
+        element: <AddSneaker />,
+      },
+      {
+        path: "popular-sneakers",
+        element: <PopularSneakers />,
+      },
+      {
+        path: "sneaker/:id",
+        element: <DetailSneaker />,
       },
     ],
   },

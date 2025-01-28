@@ -1,22 +1,6 @@
 import { Link } from "react-router-dom";
 
-{
-  /* <h1>{data.name}</h1>
-      <div>Price</div>
-      <div>Brand</div>
-      <div>releaseYear</div>
-      <div>size</div>
-      <div>condition</div>
-      <div>colorway</div>
-      <div>collaboration</div>
-      <div>imageUrl</div>
-      <div>box</div>
-      <div>UserId</div>
-      <div>authenticity Status</div>
-      <div>createdAt</div> */
-}
-
-function formatPrice(price) {
+export function formatPrice(price) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
@@ -30,7 +14,7 @@ export default function CardHome({ data }) {
     <div className="text-black w-96 h-80 bg-white rounded-2xl flex flex-col">
       <Link
         className="flex-1  w-full h-1/2 flex justify-center items-center"
-        to={`/detail/${data.id}`}
+        to={`/sneaker/${data.id}`}
       >
         <img
           src={data.imageUrl}
