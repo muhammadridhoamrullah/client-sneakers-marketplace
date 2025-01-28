@@ -1,4 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
+
+function logout() {
+  localStorage.clear();
+
+  redirect("/login");
+}
 
 export default function Navbar() {
   return (
@@ -14,7 +20,7 @@ export default function Navbar() {
         <Link to={"/sneakers/user"}>My Sneakers</Link>
         <Link
           onClick={() => {
-            localStorage.clear();
+            logout();
           }}
         >
           Logout

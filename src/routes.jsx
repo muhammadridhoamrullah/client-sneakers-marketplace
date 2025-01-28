@@ -10,6 +10,8 @@ import SneakerByBrand from "./pages/SneakerByBrand";
 import AddEditSneaker from "./pages/AddEditSneaker";
 import SneakerByUser from "./pages/SneakerByUser";
 import Auctions from "./pages/Auctions";
+import AddAuction from "./pages/AddAuction";
+import DetailAuction from "./pages/DetailAuction";
 
 function checkLogin() {
   if (!localStorage.access_token) {
@@ -75,6 +77,14 @@ const router = createBrowserRouter([
       {
         path: "auctions",
         element: <Auctions />,
+      },
+      {
+        path: "add-auction/:id",
+        element: <AddAuction />,
+      },
+      {
+        path: "auction/:id",
+        element: <DetailAuction />,
       },
     ],
   },

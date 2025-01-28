@@ -12,13 +12,16 @@ function ifStatus(status) {
 export default function CardAuction({ data }) {
   return (
     <div className="w-96 h-96 border border-white rounded-lg flex flex-col">
-      <div className="flex-1 w-full h-full rounded-t-lg overflow-hidden bg-white">
+      <Link
+        to={`/auction/${data.id}`}
+        className="flex-1 w-full h-full rounded-t-lg overflow-hidden bg-white"
+      >
         <img
           src={data.Sneaker?.imageUrl}
           alt={data.Sneaker?.name}
           className="w-full h-full object-contain rounded-t-lg"
         />
-      </div>
+      </Link>
       <div className="flex-2 flex flex-col gap-2 p-4">
         <div>{data.Sneaker?.name}</div>
         <div className=" w-full h-full flex flex-col gap-2 font-bold">
