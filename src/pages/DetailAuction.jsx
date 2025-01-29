@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import instance from "../axiosInstance";
 import { formatPrice } from "../components/CardHome";
@@ -161,9 +161,12 @@ export default function DetailAuction() {
             )}
 
             {detailAuction.status === "Active" && (
-              <button className="bg-blue-900 w-40 p-2 rounded-md text-white font-semibold">
+              <Link
+                to={`/add-bid/${detailAuction.id}`}
+                className="bg-blue-900 w-40 p-2 rounded-md text-white font-semibold flex justify-center items-center"
+              >
                 BID
-              </button>
+              </Link>
             )}
           </div>
         </div>

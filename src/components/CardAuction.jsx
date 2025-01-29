@@ -45,11 +45,6 @@ export default function CardAuction({ data }) {
             <div className="w-40">Status </div>:
             <div className={ifStatus(data.status)}> {data.status}</div>
           </div>
-          {data.status === "Active" && (
-            <Link className="bg-blue-900 w-20 p-1 rounded-lg flex justify-center items-center">
-              BID
-            </Link>
-          )}
         </div>
       </div>
     </div>

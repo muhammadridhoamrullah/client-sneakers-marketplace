@@ -1,8 +1,7 @@
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 
 function logout() {
-  localStorage.clear();
-
+  localStorage.removeItem("access_token");
   redirect("/login");
 }
 

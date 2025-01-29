@@ -21,7 +21,13 @@ export default function AddAuction() {
 
     setFormAddAuction({
       ...formAddAuction,
-      [name]: value,
+      [name]:
+        name === "startingPrice" ||
+        name === "reservePrice" ||
+        name === "minBidIncrement" ||
+        name === "buyNowPrice"
+          ? Number(value)
+          : value,
     });
   }
 
