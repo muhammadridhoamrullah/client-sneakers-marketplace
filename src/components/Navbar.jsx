@@ -1,11 +1,12 @@
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function logout() {
+function logout(navigate) {
   localStorage.removeItem("access_token");
-  redirect("/login");
+  navigate("/login");
 }
 
 export default function Navbar() {
+  const navigate = useNavigate();
   return (
     <div className="flex justify-between bg-black opacity-90 text-white p-4 font-semibold">
       <div className="flex gap-4">
@@ -17,9 +18,10 @@ export default function Navbar() {
       </div>
       <div className="flex gap-4">
         <Link to={"/sneakers/user"}>My Sneakers</Link>
+        <Link to={"/my-auctions"}>My Auctions</Link>
         <Link
           onClick={() => {
-            logout();
+            logout(navigate);
           }}
         >
           Logout

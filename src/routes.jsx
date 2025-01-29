@@ -13,7 +13,8 @@ import Auctions from "./pages/Auctions";
 import AddAuction from "./pages/AddAuction";
 import DetailAuction from "./pages/DetailAuction";
 import AddBid from "./pages/AddBid";
-import BidByAuctionId from "./pages/BidByAuctionId";
+import DetailBidByAuctionId from "./pages/DetailBidByAuctionId";
+import MyAuctions from "./pages/MyAuctions";
 
 function checkLogin() {
   if (!localStorage.access_token) {
@@ -94,7 +95,11 @@ const router = createBrowserRouter([
       },
       {
         path: "bid-auction/:id",
-        element: <BidByAuctionId />,
+        element: <DetailBidByAuctionId />,
+      },
+      {
+        path: "my-auctions",
+        element: <MyAuctions />,
       },
     ],
   },

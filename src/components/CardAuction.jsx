@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { formatDate } from "../pages/DetailSneaker";
+import { formatPrice } from "./CardHome";
 
 function ifStatus(status) {
   if (status === "Closed") {
@@ -35,7 +36,7 @@ export default function CardAuction({ data }) {
           </div>
           <div className="w-full  flex ">
             <div className="w-40">Min Bid Increment</div>
-            <div>: {data.minBidIncrement}</div>
+            <div>: {formatPrice(data.minBidIncrement)}</div>
           </div>
           <div className="w-full  flex ">
             <div className="w-40">Auctioneer </div>

@@ -32,7 +32,7 @@ export default function DetailAuction() {
     getDetailAuction();
   }, []);
   return (
-    <div className="bg-black w-full min-h-screen flex justify-center items-start pt-10 text-white ">
+    <div className="bg-black w-full min-h-screen flex justify-center items-start py-10 text-white ">
       <div className="w-[1250px] h-fit  border border-white rounded-md flex">
         <div className="flex-2 bg-white w-full rounded-l-md">
           <img
@@ -166,6 +166,15 @@ export default function DetailAuction() {
                 className="bg-blue-900 w-40 p-2 rounded-md text-white font-semibold flex justify-center items-center"
               >
                 BID
+              </Link>
+            )}
+
+            {detailAuction.totalBids > 0 && (
+              <Link
+                to={`/bid-auction/${detailAuction.id}`}
+                className="mt-5 w-fit h-fit p-4 bg-green-900 rounded-lg font-semibold cursor-pointer"
+              >
+                History Bid
               </Link>
             )}
           </div>

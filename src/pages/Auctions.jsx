@@ -29,7 +29,7 @@ export default function Auctions() {
     getSneakerAuction();
   }, []);
   return (
-    <div className="bg-black w-full min-h-screen flex flex-wrap justify-center items-start text-white pt-10 gap-4">
+    <div className="bg-black w-full min-h-screen flex flex-wrap justify-center items-start text-white py-10 gap-4">
       {auctions.map((el, i) => {
         return <CardAuction key={i} data={el} />;
       })}
