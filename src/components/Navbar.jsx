@@ -15,17 +15,18 @@ export default function Navbar() {
         <Link to={"/popular-sneakers"}>Popular</Link>
         <Link to={"/brands"}>Brands</Link>
         <Link to={"/auctions"}>Auction</Link>
+        <Link to={"/add-preorder"}>Add Preorder</Link>
       </div>
       <div className="flex gap-4">
         <Link to={"/sneakers/user"}>My Sneakers</Link>
         <Link to={"/my-auctions"}>My Auctions</Link>
-        <Link
+        <button
           onClick={() => {
             logout(navigate);
           }}
         >
           Logout
-        </Link>
+        </button>
       </div>
     </div>
   );

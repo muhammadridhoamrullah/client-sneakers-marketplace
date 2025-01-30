@@ -1,4 +1,5 @@
 import { formatDate } from "../pages/DetailSneaker";
+import { formatPrice } from "./CardHome";
 
 export default function CardHistoryBid({ data }) {
   return (
@@ -12,7 +13,7 @@ export default function CardHistoryBid({ data }) {
       <div className="flex gap-4">
         <label className="font-semibold w-48">Amount</label>
         <div className="w-full h-fit p-1 border border-white rounded-md flex justify-center items-center font-semibold">
-          {data.amount}
+          {formatPrice(data.amount)}
         </div>
       </div>
       <div className="flex gap-4">

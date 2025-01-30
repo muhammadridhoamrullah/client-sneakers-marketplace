@@ -15,6 +15,8 @@ import DetailAuction from "./pages/DetailAuction";
 import AddBid from "./pages/AddBid";
 import DetailBidByAuctionId from "./pages/DetailBidByAuctionId";
 import MyAuctions from "./pages/MyAuctions";
+import AddPreorder from "./pages/AddPreorder";
+import Preorders from "./pages/Preorders";
 
 function checkLogin() {
   if (!localStorage.access_token) {
@@ -100,6 +102,14 @@ const router = createBrowserRouter([
       {
         path: "my-auctions",
         element: <MyAuctions />,
+      },
+      {
+        path: "add-preorder",
+        element: <AddPreorder />,
+      },
+      {
+        path: "/preorders",
+        element: <Preorders />,
       },
     ],
   },
